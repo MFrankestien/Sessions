@@ -7,6 +7,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool isMale=true;
+  double height =120.0;
+  int w = 50;
+  int age =10;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,45 +23,60 @@ class _HomePageState extends State<HomePage> {
             child: Row(
               children: [
                 Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.grey[300],
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.male,
-                          size: 70,
-                        ),
-                        Text(
-                          "Male",
-                          style: TextStyle(fontSize: 30),
-                        )
-                      ],
+                  child: GestureDetector(
+                    onTap: (){
+                      setState(() {
+                        isMale=true;
+                      });
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: isMale?Colors.red:Colors.grey[300],
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.male,
+                            size: 70,
+                          ),
+                          Text(
+                            "Male",
+                            style: TextStyle(fontSize: 30),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
                 SizedBox(width: 15),
                 Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.grey[300],
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.female,
-                          size: 70,
-                        ),
-                        Text(
-                          'Female',
-                          style: TextStyle(fontSize: 30),
-                        )
-                      ],
+                  child: GestureDetector(
+                    onTap: (){
+                            setState(() {
+                            isMale=false;
+                            });
+                            },
+
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color:isMale?Colors.grey[300]:Colors.red,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.female,
+                            size: 70,
+                          ),
+                          Text(
+                            'Female',
+                            style: TextStyle(fontSize: 30),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -87,7 +106,7 @@ class _HomePageState extends State<HomePage> {
                         textBaseline: TextBaseline.alphabetic,
                         children: [
                           Text(
-                            "180",
+                            "${height.round()}",
                             style: TextStyle(
                                 fontSize: 50, fontWeight: FontWeight.w800),
                           ),
@@ -103,8 +122,12 @@ class _HomePageState extends State<HomePage> {
                         child: Slider(
                           min: 80,
                           max: 300,
-                          onChanged: (value) {},
-                          value: 120,
+                          onChanged: (value) {
+                            setState(() {
+                              height=value;
+                            });
+                          },
+                          value: height,
                         ),
                       )
                     ],
@@ -133,19 +156,28 @@ class _HomePageState extends State<HomePage> {
                           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                         Text(
-                          "180",
+                          "$age",
                           style: TextStyle(fontSize: 50, fontWeight: FontWeight.w800),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             FloatingActionButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                setState(() {
+                                  age++;
+                                });
+                              },
                               child: Icon(Icons.add),
                               mini: true,
                             ),
                             FloatingActionButton(
-                              onPressed: () {},
+                              onPressed: () {
+
+                               setState(() {
+                                 age--;
+                               });
+                              },
                               child: Icon(Icons.remove),
                               mini: true,
                             ),
@@ -166,23 +198,31 @@ class _HomePageState extends State<HomePage> {
                   child: Column(
                     children: [
                       Text(
-                        "Age",
+                        "Weight",
                         style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        "180",
+                        "$w",
                         style: TextStyle(fontSize: 50, fontWeight: FontWeight.w800),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           FloatingActionButton(
-                            onPressed: () {},
+                            onPressed: () {
+                             setState(() {
+                               w++;
+                             });
+                            },
                             child: Icon(Icons.add),
                             mini: true,
                           ),
                           FloatingActionButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              setState(() {
+                                w--;
+                              });
+                            },
                             child: Icon(Icons.remove),
                             mini: true,
                           ),
