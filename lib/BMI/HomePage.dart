@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -49,11 +50,11 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.male,
+                          Icons.female,
                           size: 70,
                         ),
                         Text(
-                          "Male",
+                          'Female',
                           style: TextStyle(fontSize: 30),
                         )
                       ],
@@ -195,8 +196,12 @@ class _HomePageState extends State<HomePage> {
           ),
               )),
           Container(
-              width: double.infinity,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(topLeft:Radius.circular(10),topRight:Radius.circular(10)  ),
               color: Colors.red,
+            ),
+              width: double.infinity,
+
               child: MaterialButton(child: Text('Calc'), onPressed: () {}))
         ],
       ),
