@@ -113,35 +113,84 @@ class _HomePageState extends State<HomePage> {
             ),
           )),
           Expanded(
-              child: Container(
+              child: Padding(
+                padding: const EdgeInsets.all(10),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
             children: [
-                Column(
-                  children: [
-                    Text(
-                      "Age",
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                Expanded(
+                  child: Container(
+
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.grey[300],
                     ),
-                    Text(
-                      "180",
-                      style: TextStyle(fontSize: 50, fontWeight: FontWeight.w800),
-                    ),
-                    Row(
+                    child: Column(
                       children: [
-                        FloatingActionButton(
-                          onPressed: () {},
-                          child: Icon(Icons.add),
-                          mini: true,
+                        Text(
+                          "Age",
+                          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                         ),
-                        FloatingActionButton(
-                          onPressed: () {},
-                          child: Icon(Icons.remove),
-                          mini: true,
+                        Text(
+                          "180",
+                          style: TextStyle(fontSize: 50, fontWeight: FontWeight.w800),
                         ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            FloatingActionButton(
+                              onPressed: () {},
+                              child: Icon(Icons.add),
+                              mini: true,
+                            ),
+                            FloatingActionButton(
+                              onPressed: () {},
+                              child: Icon(Icons.remove),
+                              mini: true,
+                            ),
+                          ],
+                        )
                       ],
-                    )
-                  ],
-                )
+                    ),
+                  ),
+                ),
+                SizedBox(width: 20,),
+              Expanded(
+                child: Container(
+
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.grey[300],
+                  ),
+                  child: Column(
+                    children: [
+                      Text(
+                        "Age",
+                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        "180",
+                        style: TextStyle(fontSize: 50, fontWeight: FontWeight.w800),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          FloatingActionButton(
+                            onPressed: () {},
+                            child: Icon(Icons.add),
+                            mini: true,
+                          ),
+                          FloatingActionButton(
+                            onPressed: () {},
+                            child: Icon(Icons.remove),
+                            mini: true,
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
               )),
