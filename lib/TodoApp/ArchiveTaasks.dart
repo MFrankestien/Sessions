@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-class DoneTasks extends StatelessWidget {
+class ArchiveTasks extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('DoneTasks'),);
+    return Center(child: Text('ArchiveTasks'),);
   }
 }
